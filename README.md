@@ -24,6 +24,18 @@ For this dataset the Logistic Regression will be used as a main tool to create a
 
 Severity in this project is an indication of the effect the accident has on traffic, rather than the injury severity 
 
+## Questions we hope to answer:
+* Is there a correlation between severity and other available features (like temp, visibility, day or night etc.)?
+* What are the top 10 States and top 10 Cities with most accidents?
+* Is there a trend over time (day, month, year)?
+* What time do most of the accidents occur?
+* Identify Red , YELLOW and GREEN  Accident zone in US
+* Monthwise Accident analysis from 2016 to 2019 ?
+* In which year had more accidents in US?
+* How much weather responsible for accidents?
+* On which location we have to take care to avoid accident during our next journey between two cities of US?
+
+
 ## Technologies we plan to use:
 Pandas, Seaborn, Matplotlib, Numpy, PostgreSQL, Tableau
 
