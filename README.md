@@ -49,4 +49,40 @@ Sandip Patel – Database
 
 Team members decided to meet up on a daily basis in Zoom at 6:45p.m. EST. 
 
+## Data Exploration phase
+
+At this phase the data was analyzed for null values, data types and number of unique values.
+
+It was found that data set had multiple data types that later were converted to suitable ones for machine learning model. Some features had a lot of missing values up to 69%, so they were dropped and for the rest of the features we decided to drop rows. Initial visualizations were done before transforming the data and after transformations. You can see them all in the “EDA.ipynb” file located in the repository and also in Google Slides by clicking the provided link.
+
+The major findings are: dataset had a lot of missing values; features had different data types; Los Angeles is the city with the biggest number of accidents; the most number of all accidents per city is less than 2500; the most severe accidents make only 7,5% of all accidents; there are 2 peaks with bigger number of accidents during the day - morning peak 8-9a.m. and afternoon peak 4-6p.m.; on the weekend the number of accidents decreases almost by half; December is the month with the biggest number of accidents; more than 85% of accidents happen on the right side of the road; most of the accidents happen during fair weather.
+
+
+## Machine Learning Phase
+
+One of the main questions was about correlation between severity of car accidents and other features. The Logistic Regression model was chosen for this project because it is a classification algorithm used to find the probability of event success and event failure.
+Logistic Regression has both advantages and disadvantages:
+
+Advantages:
+* It is easier to implement, interpret, and very efficient to train
+* It makes no assumptions about distributions of classes in feature space
+* It not only provides a measure of how appropriate a predictor(coefficient size)is, but also its direction of association (positive or negative)
+* It is very fast at classifying unknown records
+* Good accuracy for many simple data sets and it performs well when the dataset is linearly separable
+* Logistic regression is less inclined to over-fitting but it can overfit in high dimensional datasets
+
+Disadvantages:
+* The major limitation of Logistic Regression is the assumption of linearity between the dependent variable and the independent variables
+* If the number of observations is lesser than the number of features, Logistic Regression should not be used, otherwise, it may lead to overfitting
+* It constructs linear boundaries
+* It can only be used to predict discrete functions. Hence, the dependent variable of Logistic Regression is bound to the discrete number set
+* Logistic Regression needs independent variables to be linearly related to the log odds (log(p/(1-p))
+
+
+## Data preprocessing and feature engineering and selection:
+
+Since our future machine learning model is based on predicting severity, we decided to regroup severity from four categories into two by labeling the most severe one with 1 and the rest of categories with 0. The regrouped data was imbalanced and the dataset was big enough so we undersampled the 0 value and oversampled 1. 
+
+Additional visualizations were made to show correlations with the regrouped data. Based on plots, a part of the road features, like 'Amenity','Bump','Give_Way','No_Exit', 'Railway','Roundabout','Traffic_Calming' were dropped as they had no effect on the number of accidents. Also, features with only one category were dropped as they have no value for our analysis. There was inconsistency in Weather and Wind features, so we cleaned them and regrouped using .loc function and regular expressions. The next step was to create  new weather features and drop the original one. 69% of data in 'Number' and 29% of 'Wind_Chill(F)' was missing, so it was decided to drop these columns. Although 'Precipitation(in)' also had a lot of missing values, we decided to leave this column as rain may change road conditions and potentially affect the number of accidents. In the rest of the features the number of missing values was insignificant, so we dropped missing values.
+
 
