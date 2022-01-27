@@ -1,4 +1,9 @@
-# FinalProject_DataAnalysis_US_Accidents
+# US_Accidents_DataAnalysis
+
+Link to [Google Slides](https://docs.google.com/presentation/d/1d2IiS6p8Cwrcbka3qVf0Hj0QpNO4slva8NfvgAUdmIE/edit#slide=id.gc6f80d1ff_0_0)
+
+Link to [Tableau Public Dashboard](https://public.tableau.com/app/profile/deepali2257)
+
 
 ## Intro (Topic and Reasons)
 
