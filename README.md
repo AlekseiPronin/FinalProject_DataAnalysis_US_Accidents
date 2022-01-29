@@ -84,10 +84,25 @@ Disadvantages:
 * Logistic Regression needs independent variables to be linearly related to the log odds (log(p/(1-p))
 
 
+
+For additional check, Random Forest was used to support findings from Logistic Regression. 
+
+Both models showed the accuracy of 93%.
+
+
 ## Data preprocessing and feature engineering and selection:
 
 Since our future machine learning model is based on predicting severity, we decided to regroup severity from four categories into two by labeling the most severe one with 1 and the rest of categories with 0. The regrouped data was imbalanced and the dataset was big enough so we undersampled the 0 value and oversampled 1. 
 
 Additional visualizations were made to show correlations with the regrouped data. Based on plots, a part of the road features, like 'Amenity','Bump','Give_Way','No_Exit', 'Railway','Roundabout','Traffic_Calming' were dropped as they had no effect on the number of accidents. Also, features with only one category were dropped as they have no value for our analysis. There was inconsistency in Weather and Wind features, so we cleaned them and regrouped using .loc function and regular expressions. The next step was to create  new weather features and drop the original one. 69% of data in 'Number' and 29% of 'Wind_Chill(F)' was missing, so it was decided to drop these columns. Although 'Precipitation(in)' also had a lot of missing values, we decided to leave this column as rain may change road conditions and potentially affect the number of accidents. In the rest of the features the number of missing values was insignificant, so we dropped missing values.
 
+
+
+## Recommendations for future analysis:
+
+* This dataset could be connected to Google Places API. In this case, user could create a route on the map and it will show the probability of getting into a car accident and severity of it
+
+* Find a better way to clean up the data and rebalance the classes
+
+* Implement this model into real-time car accident prediction service
 
