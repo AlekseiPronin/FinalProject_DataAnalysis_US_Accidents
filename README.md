@@ -46,7 +46,7 @@ Pandas, Seaborn, Matplotlib, Numpy, PostgreSQL, Tableau
 
 
 ## Project Team and responsibilities:
-Deepali Bhardwaj – GitHub
+Deepali Bhardwaj – GitHub and Visualization
 
 Aleksei Pronin – Machine Learning
 
@@ -98,7 +98,7 @@ Additional visualizations were made to show correlations with the regrouped data
 
 
 
-## Recommendations for future analysis:
+## Recommendations for a future analysis:
 
 * This dataset could be connected to Google Places API. In this case, user could create a route on the map and it will show the probability of getting into a car accident and severity of it
 
