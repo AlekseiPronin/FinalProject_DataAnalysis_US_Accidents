@@ -97,7 +97,11 @@ The dataset was split for training and testing part in proportion 60/40 due to a
 
 Classification report:
 
-[classification report]()
+![classification report](https://github.com/Sparkythephoenix/US_Accidents_DataAnalysis/blob/Machine_Learning/Resources/classification_report_log_reg.png)
+
+confusion matrix:
+
+![confusion_matrix](https://github.com/Sparkythephoenix/US_Accidents_DataAnalysis/blob/Machine_Learning/Resources/Confusion_matrix_Log_reg.png)
 
 
 Precision for low severity accidents is 0.93 which tells us that the number of false positives is very low. Precision for high severity is 0.66.
@@ -108,7 +112,7 @@ For additional check, Random Forest was used to support findings from Logistic R
 
 Both models showed the accuracy of 93%.
 
-[accuracy_score]()
+![accuracy_score](https://github.com/Sparkythephoenix/US_Accidents_DataAnalysis/blob/Machine_Learning/Resources/accuracy.png)
 
 
 
@@ -116,7 +120,7 @@ Both models showed the accuracy of 93%.
 
 After data was cleaned and data types changed, data was saved to PostgreSQL database for future use.
 
-[database]()
+![database](https://github.com/Sparkythephoenix/US_Accidents_DataAnalysis/blob/Machine_Learning/Resources/database.png)
 
 
 
