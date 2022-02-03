@@ -58,9 +58,18 @@ Team members decided to meet up on a daily basis in Zoom at 6:45p.m. EST.
 
 At this phase the data was analyzed for null values, data types and number of unique values.
 
-It was found that data set had multiple data types that later were converted to suitable ones for machine learning model. Some features had a lot of missing values up to 69%, so they were dropped and for the rest of the features we decided to drop rows. Initial visualizations were done before transforming the data and after transformations. You can see them all in the “EDA.ipynb” file located in the repository and also in Google Slides by clicking the provided link.
+It was found that data set had multiple data types that later were converted to suitable ones for machine learning model. Some features had a lot of missing values up to 69%, so they were dropped and for the rest of the features we decided to drop rows. Initial visualizations were done before transforming the data and after transformations. You can see them all in the “EDA.ipynb” file located in the repository and also in Tableau Public by clicking the provided link above.
 
 The major findings are: dataset had a lot of missing values; features had different data types; Los Angeles is the city with the biggest number of accidents; the most number of all accidents per city is less than 2500; the most severe accidents make only 7,5% of all accidents; there are 2 peaks with bigger number of accidents during the day - morning peak 8-9a.m. and afternoon peak 4-6p.m.; on the weekend the number of accidents decreases almost by half; December is the month with the biggest number of accidents; more than 85% of accidents happen on the right side of the road; most of the accidents happen during fair weather.
+
+
+
+## Data preprocessing and feature engineering and selection:
+
+Since our future machine learning model is based on predicting severity, we decided to regroup severity from four categories into two by labeling the most severe one with 1 and the rest of categories with 0. The regrouped data was imbalanced and the dataset was big enough so we undersampled the 0 value and oversampled 1. 
+
+Additional visualizations were made to show correlations with the regrouped data. Based on plots, a part of the road features, like 'Amenity','Bump','Give_Way','No_Exit', 'Railway','Roundabout','Traffic_Calming' were dropped as they had no effect on the number of accidents. Also, features with only one category were dropped as they have no value for our analysis. There was inconsistency in Weather and Wind features, so we cleaned them and regrouped using .loc function and regular expressions. The next step was to create  new weather features and drop the original one. 69% of data in 'Number' and 29% of 'Wind_Chill(F)' was missing, so it was decided to drop these columns. Although 'Precipitation(in)' also had a lot of missing values, we decided to leave this column as rain may change road conditions and potentially affect the number of accidents. In the rest of the features the number of missing values was insignificant, so we dropped missing values.
+
 
 
 ## Machine Learning Phase
@@ -84,18 +93,39 @@ Disadvantages:
 * Logistic Regression needs independent variables to be linearly related to the log odds (log(p/(1-p))
 
 
+The dataset was split for training and testing part in proportion 60/40 due to a large number of rows.
+
+Classification report:
+
+[classification report]()
+
+
+Precision for low severity accidents is 0.93 which tells us that the number of false positives is very low. Precision for high severity is 0.66.
+
+Recall for low severity accidents is 1.0 which is rather high and it means that there are no false negatives. High severity recall is 0.05 which means that number of false negative results is significant.
 
 For additional check, Random Forest was used to support findings from Logistic Regression. 
 
 Both models showed the accuracy of 93%.
 
+[accuracy_score]()
 
-## Data preprocessing and feature engineering and selection:
 
-Since our future machine learning model is based on predicting severity, we decided to regroup severity from four categories into two by labeling the most severe one with 1 and the rest of categories with 0. The regrouped data was imbalanced and the dataset was big enough so we undersampled the 0 value and oversampled 1. 
 
-Additional visualizations were made to show correlations with the regrouped data. Based on plots, a part of the road features, like 'Amenity','Bump','Give_Way','No_Exit', 'Railway','Roundabout','Traffic_Calming' were dropped as they had no effect on the number of accidents. Also, features with only one category were dropped as they have no value for our analysis. There was inconsistency in Weather and Wind features, so we cleaned them and regrouped using .loc function and regular expressions. The next step was to create  new weather features and drop the original one. 69% of data in 'Number' and 29% of 'Wind_Chill(F)' was missing, so it was decided to drop these columns. Although 'Precipitation(in)' also had a lot of missing values, we decided to leave this column as rain may change road conditions and potentially affect the number of accidents. In the rest of the features the number of missing values was insignificant, so we dropped missing values.
+## Database 
 
+After data was cleaned and data types changed, data was saved to PostgreSQL database for future use.
+
+[database]()
+
+
+
+## What we could do differently:
+
+* Create a model based on 4 levels of Severity
+* Differently visualize correlations between features
+* Add traffic features
+* Apply different ML model, probbably unsupervised
 
 
 ## Recommendations for a future analysis:
